@@ -2,28 +2,32 @@
 <header>
     <title>Calculator</title>
     <style>
+        
+        body {
+            display: flex;
+            justify-content: center;
+        }
 
         #container {
             margin-top: 5%;
             margin-left: 5%;
         }
+
         #result {
             border-radius: 10px;
-            height: 30px;
-            width: 140px; 
+            height: 40px;
+            width: 155px; 
             border: 1px solid black;
             background-color: #000;
             color:#fff;
             padding:5 10px;
-            display: flex;
-            align-items:center;  
-            justify-content: flex-end;         
+            text-align: right;
         }
 
-        div#buttons {
-            width: 140px;
+        #buttons {
+            width: 160px;
             display: flex;
-            flex-wrap: 
+            flex-wrap: wrap; 
         }
 
         button {
@@ -40,46 +44,127 @@
         }
 
         #equal {
+            width: 160px;
             background-color: #FFA500;
+        }
+
+        #clear {
+            width: 160px;
         }
 
     </style>
 
-    <script type = "text/javscript">
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            var result = document.getElementById("result");
+
+            var plus =  document.getElementById("operator1");
+            var minus = document.getElementById("operator2");
+            var inmultit = document.getElementById("operator3");
+            var impartit = document.getElementById("operator4");
+
+            var btn9 = document.getElementById("btn9");
+            var btn8 = document.getElementById("btn8");
+            var btn7 = document.getElementById("btn7");
+            var btn6 = document.getElementById("btn6");
+            var btn5 = document.getElementById("btn5");
+            var btn4 = document.getElementById("btn4");
+            var btn3 = document.getElementById("btn3");
+            var btn2 = document.getElementById("btn2");
+            var btn1 = document.getElementById("btn1");
+            var btn0 = document.getElementById("btn0");
+
+            var clear = document.getElementById("clear");
+
+            var equal = document.getElementById("equal");
+
+            // Operators
+            plus.addEventListener("click", () => {
+                result.value = result.value + "+";
+            });
+            minus.addEventListener("click", () => {
+                result.value = result.value + "-";
+            });
+            inmultit.addEventListener("click", () => {
+                result.value = result.value + "*";
+            });
+            impartit.addEventListener("click", () => {
+                result.value = result.value + "/";
+            });
+
+            // Buttons
+            btn9.addEventListener("click", () => {
+                result.value = result.value + "9";
+            });
+            btn8.addEventListener("click", () => {
+                result.value = result.value + "8";
+            });
+            btn7.addEventListener("click", () => {
+                result.value = result.value + "7";
+            });
+            btn6.addEventListener("click", () => {
+                result.value = result.value + "6";
+            });
+            btn5.addEventListener("click", () => {
+                result.value = result.value + "5";
+            });
+            btn4.addEventListener("click", () => {
+                result.value = result.value + "4";
+            });
+            btn3.addEventListener("click", () => {
+                result.value = result.value + "3";
+            });
+            btn2.addEventListener("click", () => {
+                result.value = result.value + "2";
+            });
+            btn1.addEventListener("click", () => {
+                result.value = result.value + "1";
+            });
+            btn0.addEventListener("click", () => {
+                result.value = result.value + "0";
+            });
+
+            // Clean env.
+            clear.addEventListener("click", () => {
+                result.value = "";
+            });
+
+            // Equal
+            equal.addEventListener("click", () => {
+                result.value = eval(result.value);
+            });
+
+        });
 
     </script>
 
 </header>
 <body>
     <div id = "container">
-        <div id="result">0</div>
+    <input type = "text" id = "result" size = "16">
         <div id = "buttons">
-            <button type="button" id="operator" value="+">+</button>
-            <button type="button" id="operator" value="-">-</button>
-            <button type="button" id="operator" value="*">&times;</button>
-            <button type="button" id="operator" value="/">&divide;</button>
+            <button type="button" id="operator1" value="+">+</button>
+            <button type="button" id="operator2" value="-">-</button>
+            <button type="button" id="operator3" value="*">&times;</button>
+            <button type="button" id="operator4" value="/">&divide;</button>
     
-            <button type="button" value="7">7</button>
-            <button type="button" value="8">8</button>
-            <button type="button" value="9">9</button>
+            <button type="button" id = "btn9" value="9">9</button>
+            <button type="button" id = "btn8" value="8">8</button>
+            <button type="button" id = "btn7" value="7">7</button>
     
+            <button type="button" id = "btn6" value="6">6</button>
+            <button type="button" id = "btn5" value="5">5</button>
+            <button type="button" id = "btn4" value="4">4</button>
     
-            <button type="button" value="4">4</button>
-            <button type="button" value="5">5</button>
-            <button type="button" value="6">6</button>
-    
-    
-            <button type="button" value="1">1</button>
-            <button type="button" value="2">2</button>
-            <button type="button" value="3">3</button>
-    
-    
-            <button type="button" value="0">0</button>
-            <button type="button" id="decimal" value=".">.</button>
-            <button type="button" id="clear" value="clear">AC</button>
-    
-            <button type="button" id="equal" value="=">=</button>
+            <button type="button" id = "btn3" value="3">3</button>
+            <button type="button" id = "btn2" value="2">2</button>
+            <button type="button" id = "btn1" value="1">1</button>
+            <button type="button" id = "btn0" value="0">0</button>
         </div>
+            <button type="button" id="clear" value="clear">AC</button>
+            <button type="button" id="equal" value="=">Press for results !</button>
     </div>
 </body>
 </html>
